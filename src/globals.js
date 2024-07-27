@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	font-family: var(--font-outfit);
+	font-family: 'Manrope', sans-serif;
 }
 ol, ul {
 	list-style: none;

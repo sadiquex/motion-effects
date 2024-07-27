@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const SlidingTabsNav = () => {
   return (
@@ -28,11 +29,28 @@ const SlideTabs = () => {
         }));
       }}
     >
-      <Tab setPosition={setPosition}>Home</Tab>
-      <Tab setPosition={setPosition}>Pricing</Tab>
-      <Tab setPosition={setPosition}>Features</Tab>
-      <Tab setPosition={setPosition}>Docs</Tab>
-      <Tab setPosition={setPosition}>Blog</Tab>
+      {[
+        {
+          label: "Home",
+          link: "/",
+        },
+        {
+          label: "Stacked Cards",
+          link: "/stacked-cards",
+        },
+        {
+          label: "Parallax Scroll",
+          link: "/parallax-scroll",
+        },
+        {
+          label: "Navigation",
+          link: "/awwwards-nav",
+        },
+      ].map((navItem, i) => (
+        <Tab key={i} setPosition={setPosition}>
+          <Link to={navItem.link}>{navItem.label}</Link>
+        </Tab>
+      ))}
 
       <Cursor position={position} />
     </NavUl>
@@ -84,6 +102,7 @@ const NavUl = styled.ul`
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  gap: 8px;
   width: fit-content;
   border-radius: 9999px;
   border: 2px solid black;
@@ -100,11 +119,15 @@ const NavLi = styled.li`
   padding-right: 0.75rem;
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
-  /* font-size: 0.75rem; */
   font-size: 2rem;
   text-transform: uppercase;
   color: white;
   mix-blend-mode: difference;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const CursorLi = styled(motion.li)`
