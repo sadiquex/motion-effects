@@ -1,4 +1,4 @@
-import Header from "./awwwardsnav/Header";
+import Header from "../components/awwwardsnav/Header";
 
 export default function AwwwardsNav() {
   return (

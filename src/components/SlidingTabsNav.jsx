@@ -46,6 +46,14 @@ const SlideTabs = () => {
           label: "Navigation",
           link: "/awwwards-nav",
         },
+        {
+          label: "Mask Cursor",
+          link: "/masked-cursor",
+        },
+        {
+          label: "Magnetic Cursor",
+          link: "/magnetic-cursor",
+        },
       ].map((navItem, i) => (
         <Tab key={i} setPosition={setPosition}>
           <Link to={navItem.link}>{navItem.label}</Link>
